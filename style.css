@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+:root{
+    --font-primary: "Baloo da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action:  "Muli",serif;
+}
+
+.hamburguer{
+    /*background-color: red;*/
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.show-menu .hamburguer{
+    right: 16rem;
+}
+.line{ 
+
+    width: 100%;
+    height: .1rem;
+    background-color: #fff;
+    box-shadow: 0.1rem 0.1rem 1px rgb(24, 24, 24);
+    transition: transform 1s;
+}
+.show-menu #line1{
+    transform: rotate(44deg) translate(.3rem, .43rem);
+}
+.show-menu #line2{
+   opacity: 0;
+   visibility: hidden;
+}
+.show-menu #line3{
+    transform: rotate(-44deg) translate(.3rem, -.45rem);
+}
+
+
+header{
+    width: 100%;
+    height: 100vh;/*"Vh-view height" significa a altura de vizialização da página carregada*/
+    overflow: hidden;
+    position: relative;/* Sem essa linha a Div-Banner não tera uma posição adequada*/
+}
+
+.img{ /* Essa Div está dentro do Header*/
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     background-color: rgba(0, 0, 0, 0.8);
+}
+.img img{/* editando o background que esta dentro da Div-img*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    animation: zoom 15s;
+}
+@keyframes zoom{
+    0%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.banner{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+}
+.banner h1{
+    color: #ffffff;
+    font-size: 3.5rem;/*1rem é igual a 16px*/
+    font-family: var(--font-primary);
+    font-weight: 200;
+    text-shadow: .3rem .4rem 2px rgba(0, 0, 0, 0.4);
+    line-height: 3.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: moveBanner 1s 0.5s forwards;
+}
+
+.banner p{
+   font-family: var(--font-secundary);
+   color: #fff;
+   font-size: 2rem;
+   text-shadow: .2rem .2rem rgba(0, 0, 0, 0.4);
+   margin-bottom: 2rem;
+   opacity: 0;
+   animation: moveBanner 1s 0.7s forwards;
+}
+.banner button{
+    font-family: var(--font-action);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    background: #c31432;  /* para navegadores antigos*/
+    background: -webkit-linear-gradient(to right, #53177e, #4b010d);  /* Para Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3f0e63, #a11028); /*Para W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    animation: moveBanner 1s 0.9s forwards;
+}
+.banner button:hover{
+    color: rgb(7, 7, 7);
+}
+
+@keyframes moveBanner{
+    0%{
+        transform: translateY(10rem) rotateY(-30deg);
+    }
+    100%{
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+}
+.sidebar {
+    width: 20rem;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all 1s;
+}
+.show-menu .sidebar{
+    right: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.menu-item{
+    text-align: center;
+    margin-bottom: .6rem;
+}
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555;
+    transition: color 1s;
+    
+}
+.menu-link:hover{
+    color: #85083c;
+}
+
+.social-media{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.social-media i{
+    background-color: #8a0b20;
+    color: rgba(255,255, 255, 1);
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 1s;
+}
+.social-media i:hover{
+    background-color: #000000;
+}
+.globo{
+   
+    display: flex;
+    justify-content: left;
+}
